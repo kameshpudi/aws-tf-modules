@@ -70,3 +70,39 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "egress_cidr_blocks" {
+  description = "List of IPv4 CIDR ranges to use on all egress rules"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "egress_ipv6_cidr_blocks" {
+  description = "List of IPv6 CIDR ranges to use on all egress rules"
+  type        = list(string)
+  default     = ["::/0"]
+}
+
+variable "egress_prefix_list_ids" {
+  description = "List of prefix list IDs (for allowing access to VPC endpoints) to use on all egress rules"
+  type        = list(string)
+  default     = []
+}
+
+##################
+# Computed Egress
+##################
+variable "computed_egress_rules" {
+  description = "List of computed egress rules to create by name"
+  type        = list(string)
+  default     = []
+}
+
+##################################
+# Number of computed egress rules
+##################################
+variable "number_of_computed_egress_rules" {
+  description = "Number of computed egress rules to create by name"
+  type        = number
+  default     = 0
+}
