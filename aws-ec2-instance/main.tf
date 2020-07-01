@@ -93,4 +93,9 @@ resource "aws_instance" "this" {
   credit_specification {
     cpu_credits = local.is_t_instance_type ? var.cpu_credits : null
   }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.this[count.index].private_ip} >> /tmp/test;echo ${aws_instance.this[count.index].private_ip} >> hosts; ansible-playbook -i hosts -u ${var.user_name} -private-key ${var.private_key} ${var.ansible_play_book_name}"
+  }
+
 }

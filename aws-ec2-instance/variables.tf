@@ -192,3 +192,21 @@ variable "num_suffix_format" {
   type        = string
   default     = "-%d"
 }
+
+variable "user_name" {
+  description = "Numerical suffix format used as the volume and EC2 instance name suffix"
+  type        = string
+  default     = ""
+}
+
+variable "private_key" {
+  description = "Numerical suffix format used as the volume and EC2 instance name suffix"
+  type        = string
+  default     = ""
+}
+
+variable "ansible_play_book_name" {
+  description = "Numerical suffix format used as the volume and EC2 instance name suffix"
+  type        = string
+  default     = ""
+}
